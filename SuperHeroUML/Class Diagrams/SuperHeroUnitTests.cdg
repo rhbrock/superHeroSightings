@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-package class diagram">
+  <ClassDiagramComponents>
+    <Class name="LocationDaoTest" package="com.sg.superherosightings.dao" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="dao" type="LocationDao" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testAddLoc" returnType="void" visibility="public"/>
+        <Method name="testDeleteLoc" returnType="void" visibility="public"/>
+        <Method name="testEditLoc" returnType="void" visibility="public"/>
+        <Method name="testGetAllLoc" returnType="void" visibility="public"/>
+        <Method name="testGetLoc" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SightingDaoTest" package="com.sg.superherosightings.dao" visibility="public" xPosition="255.0" yPosition="20.0">
+      <Fields>
+        <Field name="dao" type="SightingDao" visibility="private"/>
+        <Field name="superDao" type="SuperHumanDao" visibility="private"/>
+        <Field name="locDao" type="LocationDao" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testAddSighting" returnType="void" visibility="public"/>
+        <Method name="testDeleteSighting" returnType="void" visibility="public"/>
+        <Method name="testEditSighting" returnType="void" visibility="public"/>
+        <Method name="testGetAllSightings" returnType="void" visibility="public"/>
+        <Method name="testGetSighting" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SuperHumanDaoTest" package="com.sg.superherosightings.dao" visibility="public" xPosition="492.0" yPosition="20.0">
+      <Fields>
+        <Field name="dao" type="SuperHumanDao" visibility="private"/>
+        <Field name="orgDao" type="OrganizationDao" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testAddSuperHuman" returnType="void" visibility="public"/>
+        <Method name="testDeleteSuperHuman" returnType="void" visibility="public"/>
+        <Method name="testEditSuperHuman" returnType="void" visibility="public"/>
+        <Method name="testGetAllSuperHumanAsList" returnType="void" visibility="public"/>
+        <Method name="testGetSuperHuman" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SuperOrganizationDaoTest" package="com.sg.superherosightings.dao" visibility="public" xPosition="771.0" yPosition="20.0">
+      <Fields>
+        <Field name="dao" type="OrganizationDao" visibility="private"/>
+        <Field name="superDao" type="SuperHumanDao" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testAddSuperOrg" returnType="void" visibility="public"/>
+        <Method name="testDeleteSuperOrg" returnType="void" visibility="public"/>
+        <Method name="testEditSuperOrg" returnType="void" visibility="public"/>
+        <Method name="testGetAllSuperOrgsAsList" returnType="void" visibility="public"/>
+        <Method name="testGetSuperOrg" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LocationServiceTest" package="com.sg.superherosightings.service" visibility="public" xPosition="20.0" yPosition="413.0">
+      <Fields>
+        <Field name="service" type="LocationService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testAddNewLocation" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="OrganizationServiceTest" package="com.sg.superherosightings.service" visibility="public" xPosition="492.0" yPosition="413.0">
+      <Fields>
+        <Field name="service" type="OrganizationService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testAddNewOrganization" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SightingServiceTest" package="com.sg.superherosightings.service" visibility="public" xPosition="255.0" yPosition="413.0">
+      <Fields>
+        <Field name="service" type="SightingService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testNewSighting" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SuperHumanServiceTest" package="com.sg.superherosightings.service" visibility="public" xPosition="771.0" yPosition="375.0">
+      <Fields>
+        <Field name="service" type="SuperHumanService" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUpClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="tearDownClass" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setUp" returnType="void" visibility="public"/>
+        <Method name="tearDown" returnType="void" visibility="public"/>
+        <Method name="testCreateNewSuperHumanNameThatExists" returnType="void" visibility="public"/>
+        <Method name="testCreateNewSuperHumanNoType" returnType="void" visibility="public"/>
+        <Method name="testCreateNewSuperHumanWrongType" returnType="void" visibility="public"/>
+        <Method name="testEditExisitingSuperHumanNoType" returnType="void" visibility="public"/>
+        <Method name="testEditExisitingSuperHumanWrongType" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

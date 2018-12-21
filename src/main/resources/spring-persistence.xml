@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+              xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/tx 
+                           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"> 
+
+    <!-- Bean definitions go here -->
+        <tx:annotation-driven/>
+    
+    <context:component-scan base-package="com.sg.superherosightings.dao" />
+    <bean id="dataSource"
+          class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" 
+                  value="jdbc:mysql://localhost:3306/superhero" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+        <property name="initialSize" value="5" />
+        <property name="maxTotal" value="10" />
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+<bean id="superHumanDao"
+          class="com.sg.superherosightings.dao.SuperHumanDaoDbImpl"/>
+
+    
+
+    <bean id="orgDao"
+          class="com.sg.superherosightings.dao.OrganizationDaoDbImpl"/>
+
+    
+
+    <bean id="locationDao"
+          class="com.sg.superherosightings.dao.LocationDaoDbImpl"/>
+
+
+    
+    <bean id="sightingDao"
+          class="com.sg.superherosightings.dao.SightingDaoDbImpl"/>
+
+    
+
+    <bean id="auditDao"
+          class="com.sg.superherosightings.dao.SuperHeroAuditDaoImpl"/>
+
+    
+        <bean id="superHumanOrgDao"
+          class="com.sg.superherosightings.dao.SuperHumanOrganizationDaoDbImpl"/>
+
+    
+        <bean id="superHumanSightingDao"
+          class="com.sg.superherosightings.dao.SuperHumanSightingDaoDbImpl"/>
+
+
+    
+        <!--    
+        <bean id="pictureDao" class="com.sg.superherosightings.dao.PictureDaoDbImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>-->
+    
+    <bean id="locationService"
+          class="com.sg.superherosightings.service.LocationServiceImpl"/>
+   
+    
+    <bean id="organizationService"
+          class="com.sg.superherosightings.service.OrganizationServiceImpl"/>
+    
+    <!--
+    
+    <bean id="pictureService"
+          class="com.sg.superherosightings.service.PictureServiceImpl">
+    </bean>
+    
+    -->    
+    <bean id="sightingService"
+          class="com.sg.superherosightings.service.SightingServiceImpl"/>
+
+    
+    <bean id="superHumanService"
+          class="com.sg.superherosightings.service.SuperHumanServiceImpl"/>
+
+    
+    <bean id="superHumanOrgService"
+               class="com.sg.superherosightings.service.SuperHumanOrganizationServiceImpl"/>
+ 
+    
+    <bean id="superHumanSightingService"
+               class="com.sg.superherosightings.service.SuperHumanSightingServiceImpl"/>
+    
+    <bean id="loggingAdvice" class="com.sg.superherosightings.logging.Logging">
+        <constructor-arg ref="auditDao"/>
+    </bean>
+    
+    <bean id="userDao"
+      class="com.sg.superherosightings.dao.UserDaoDbImpl">
+    <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    
+    
+    <aop:config>
+        <aop:aspect ref="loggingAdvice">
+            <aop:after-returning
+                method="createAuditEntry"
+                pointcut="execution(* com.sg.superherosightings.service.*.*(..))"
+            />
+            <aop:after-throwing
+                method="doAfterThrowing"
+                pointcut="execution(* com.sg.superherosightings.service.*.*(..))"
+                throwing="ex"
+            />
+            
+<!--            <aop:after-returning
+                method="createAuditEntry"
+                pointcut="execution(* com.sg.dvdlibrary.service.DVDLibraryServiceLayer.addDVD(..))"
+            />
+            <aop:after-returning
+                method="createAuditEntry"
+                pointcut="execution(* com.sg.dvdlibrary.service.DVDLibraryServiceLayer.deleteDVD(..))"
+            />
+            <aop:after-returning
+                method="createAuditEntry"
+                pointcut="execution(* com.sg.dvdlibrary.service.DVDLibraryServiceLayer.editDVD(..))"
+            />
+            <aop:after-throwing
+                method="doAfterInsFunds"
+                pointcut="execution(* com.sg.vendingmachine.service.*.*(..))"
+                throwing="ex"
+            />
+            
+            <aop:after-throwing
+                method="doAfterNoItem"
+                pointcut="execution(* com.sg.vendingmachine.service.*.*(..))"
+                throwing="ex"
+            />-->
+        </aop:aspect>
+    </aop:config>
+    
+</beans>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Location" package="com.sg.superherosightings.model" visibility="public" xPosition="1354.0" yPosition="66.0">
+      <Fields>
+        <Field name="locId" type="int" visibility="private"/>
+        <Field name="locName" type="String" visibility="private"/>
+        <Field name="locDesc" type="String" visibility="private"/>
+        <Field name="streetAddress" type="String" visibility="private"/>
+        <Field name="zip" type="int" visibility="private"/>
+        <Field name="lat" type="double" visibility="private"/>
+        <Field name="lon" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getLocId" returnType="int" visibility="public"/>
+        <Method name="setLocId" returnType="void" visibility="public">
+          <Argument type="int" name="locId"/>
+        </Method>
+        <Method name="getLocName" returnType="String" visibility="public"/>
+        <Method name="setLocName" returnType="void" visibility="public">
+          <Argument type="String" name="locName"/>
+        </Method>
+        <Method name="getLocDesc" returnType="String" visibility="public"/>
+        <Method name="setLocDesc" returnType="void" visibility="public">
+          <Argument type="String" name="locDesc"/>
+        </Method>
+        <Method name="getStreetAddress" returnType="String" visibility="public"/>
+        <Method name="setStreetAddress" returnType="void" visibility="public">
+          <Argument type="String" name="streetAddress"/>
+        </Method>
+        <Method name="getZip" returnType="int" visibility="public"/>
+        <Method name="setZip" returnType="void" visibility="public">
+          <Argument type="int" name="zip"/>
+        </Method>
+        <Method name="getLat" returnType="double" visibility="public"/>
+        <Method name="setLat" returnType="void" visibility="public">
+          <Argument type="double" name="lat"/>
+        </Method>
+        <Method name="getLon" returnType="double" visibility="public"/>
+        <Method name="setLon" returnType="void" visibility="public">
+          <Argument type="double" name="lon"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Organization" package="com.sg.superherosightings.model" visibility="public" xPosition="51.0" yPosition="51.0">
+      <Fields>
+        <Field name="orgId" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="description" type="String" visibility="private"/>
+        <Field name="orgMembers" type="List&lt;SuperHuman&gt;" visibility="private"/>
+        <Field name="streetAddress" type="String" visibility="private"/>
+        <Field name="zip" type="int" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="phoneNumber" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getOrgId" returnType="int" visibility="public"/>
+        <Method name="setOrgId" returnType="void" visibility="public">
+          <Argument type="int" name="orgId"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="setDescription" returnType="void" visibility="public">
+          <Argument type="String" name="description"/>
+        </Method>
+        <Method name="getOrgMembers" returnType="List&lt;SuperHuman&gt;" visibility="public"/>
+        <Method name="setOrgMembers" returnType="void" visibility="public">
+          <Argument type="List&lt;SuperHuman&gt;" name="orgMembers"/>
+        </Method>
+        <Method name="getStreetAddress" returnType="String" visibility="public"/>
+        <Method name="setStreetAddress" returnType="void" visibility="public">
+          <Argument type="String" name="streetAddress"/>
+        </Method>
+        <Method name="getZip" returnType="int" visibility="public"/>
+        <Method name="setZip" returnType="void" visibility="public">
+          <Argument type="int" name="zip"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getPhoneNumber" returnType="String" visibility="public"/>
+        <Method name="setPhoneNumber" returnType="void" visibility="public">
+          <Argument type="String" name="phoneNumber"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Picture" package="com.sg.superherosightings.model" visibility="public" xPosition="824.0" yPosition="488.0">
+      <Fields>
+        <Field name="picId" type="int" visibility="private"/>
+        <Field name="picTitle" type="String" visibility="private"/>
+        <Field name="filename" type="String" visibility="private"/>
+        <Field name="picture" type="byte[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getPicId" returnType="int" visibility="public"/>
+        <Method name="setPicId" returnType="void" visibility="public">
+          <Argument type="int" name="picId"/>
+        </Method>
+        <Method name="getPicTitle" returnType="String" visibility="public"/>
+        <Method name="setPicTitle" returnType="void" visibility="public">
+          <Argument type="String" name="picTitle"/>
+        </Method>
+        <Method name="getFilename" returnType="String" visibility="public"/>
+        <Method name="setFilename" returnType="void" visibility="public">
+          <Argument type="String" name="filename"/>
+        </Method>
+        <Method name="getPicture" returnType="byte[]" visibility="public"/>
+        <Method name="setPicture" returnType="void" visibility="public">
+          <Argument type="byte[]" name="picture"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sighting" package="com.sg.superherosightings.model" visibility="public" xPosition="877.0" yPosition="66.0">
+      <Fields>
+        <Field name="sightingId" type="int" visibility="private"/>
+        <Field name="dateTime" type="LocalDateTime" visibility="private"/>
+        <Field name="superHuman" type="SuperHuman" visibility="private"/>
+        <Field name="loc" type="Location" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getSightingId" returnType="int" visibility="public"/>
+        <Method name="setSightingId" returnType="void" visibility="public">
+          <Argument type="int" name="sightingId"/>
+        </Method>
+        <Method name="getDateTime" returnType="LocalDateTime" visibility="public"/>
+        <Method name="setDateTime" returnType="void" visibility="public">
+          <Argument type="LocalDateTime" name="dateTime"/>
+        </Method>
+        <Method name="getSuperHuman" returnType="SuperHuman" visibility="public"/>
+        <Method name="setSuperHuman" returnType="void" visibility="public">
+          <Argument type="SuperHuman" name="superHuman"/>
+        </Method>
+        <Method name="getLoc" returnType="Location" visibility="public"/>
+        <Method name="setLoc" returnType="void" visibility="public">
+          <Argument type="Location" name="loc"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SuperHuman" package="com.sg.superherosightings.model" visibility="public" xPosition="493.0" yPosition="51.0">
+      <Fields>
+        <Field name="superId" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="type" type="String" visibility="private"/>
+        <Field name="superpower" type="String" visibility="private"/>
+        <Field name="description" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getSuperId" returnType="int" visibility="public"/>
+        <Method name="setSuperId" returnType="void" visibility="public">
+          <Argument type="int" name="superId"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getType" returnType="String" visibility="public"/>
+        <Method name="setType" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+        </Method>
+        <Method name="getSuperpower" returnType="String" visibility="public"/>
+        <Method name="setSuperpower" returnType="void" visibility="public">
+          <Argument type="String" name="superpower"/>
+        </Method>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="setDescription" returnType="void" visibility="public">
+          <Argument type="String" name="description"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="orgMembers" source="com.sg.superherosightings.model.Organization" target="com.sg.superherosightings.model.SuperHuman" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;SuperHuman&gt;"/>
+    <HasRelation name="loc" source="com.sg.superherosightings.model.Sighting" target="com.sg.superherosightings.model.Location" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.sg.superherosightings.model.Organization" target="com.sg.superherosightings.model.SuperHuman" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.sg.superherosightings.model.Sighting" target="com.sg.superherosightings.model.SuperHuman" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="superHuman" source="com.sg.superherosightings.model.Sighting" target="com.sg.superherosightings.model.SuperHuman" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.sg.superherosightings.model.Sighting" target="com.sg.superherosightings.model.Location" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

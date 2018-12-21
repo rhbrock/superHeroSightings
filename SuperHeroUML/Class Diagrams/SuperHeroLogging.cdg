@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Logging">
+  <ClassDiagramComponents>
+    <Class name="Logging" package="com.sg.superherosightings.logging" visibility="public" xPosition="23.0" yPosition="24.0">
+      <Fields>
+        <Field name="auditDao" type="SuperHeroAuditDao" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SuperHeroAuditDao" name="auditDao"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createAuditEntry" returnType="void" visibility="public">
+          <Argument type="JoinPoint" name="jp"/>
+        </Method>
+        <Method name="doAfterThrowing" returnType="void" visibility="public">
+          <Argument type="SuperHumanTypeException" name="ex"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

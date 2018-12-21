@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ http://www.springframework.org/schema/security
+ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+    
+
+    <beans:bean id="webexpressionHandler"
+                class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/> 
+    
+    <beans:bean id="encoder"
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+                
+    <http pattern="/login" security="none" />
+    <http pattern="/error" security="none" />
+    <http pattern="/css/**" security="none" />
+    <http pattern="/js/**" security="none" />
+    <http pattern="/img/**" security="none"/> 
+
+
+    <http auto-config="true" use-expressions="false">
+        <form-login login-processing-url="/j_spring_security_check"
+                    login-page="/login"
+                    authentication-failure-url="/login?login_error=1"/>
+       
+        <intercept-url pattern="/" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/index.jsp" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/supers" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/orgs" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/locs" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/sightings" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/super" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/org" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/loc" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <intercept-url pattern="/sighting" 
+                       access="IS_AUTHENTICATED_ANONYMOUSLY" />
+  
+        <!--Sidekick Roles-->
+        <intercept-url pattern="/newSuper" 
+                       access="ROLE_SIDEKICK" />
+        <intercept-url pattern="/editSuper" 
+                       access="ROLE_SIDEKICK" />
+        <intercept-url pattern="/addAffiliate" 
+                       access="ROLE_SIDEKICK" />
+        <intercept-url pattern="/newLoc" 
+                       access="ROLE_SIDEKICK" />   
+        <intercept-url pattern="/editLoc" 
+                       access="ROLE_SIDEKICK" />
+        <intercept-url pattern="/newSighting" 
+                       access="ROLE_SIDEKICK" />
+        <intercept-url pattern="/editSighting" 
+                       access="ROLE_SIDEKICK" />   
+        <intercept-url pattern="/**" 
+                       access="ROLE_SIDEKICK" />
+        
+        
+        <!--Admin Roles-->
+        <intercept-url pattern="/deleteSuper" 
+                       access="ROLE_ADMIN" />
+        <intercept-url pattern="/removeAffiliate" 
+                       access="ROLE_ADMIN" />
+        <intercept-url pattern="/newOrg" 
+                       access="ROLE_ADMIN" />
+        <intercept-url pattern="/editOrg" 
+                       access="ROLE_ADMIN" />
+        <intercept-url pattern="/deleteOrg" 
+                       access="ROLE_ADMIN" />
+        <intercept-url pattern="/deleteLoc" 
+                       access="ROLE_ADMIN" />        
+        <intercept-url pattern="/deleteSighting" 
+                       access="ROLE_ADMIN" />
+        
+        <intercept-url pattern="/displayUserList" access="ROLE_ADMIN" />
+        <intercept-url pattern="/deleteUser" access="ROLE_ADMIN" />
+        <intercept-url pattern="/displayUserForm" access="ROLE_ADMIN" />
+        <intercept-url pattern="/addUser" access="ROLE_ADMIN" />
+
+    </http>
+    
+    <authentication-manager>
+        <authentication-provider>
+            <password-encoder ref="encoder"/>
+            <jdbc-user-service id="userService"
+                               data-source-ref="dataSource"
+                               users-by-username-query=
+ "select username, password, enabled from users where username=?"
+                               authorities-by-username-query=
+ "select username, authority from authorities where username=?" />
+        </authentication-provider>
+    </authentication-manager>
+    
+    
+
+</beans:beans>

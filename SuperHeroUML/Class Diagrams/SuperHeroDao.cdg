@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="LocationDaoDbImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="295.0" yPosition="20.0">
+      <Fields>
+        <Field name="jdbcTemplate" type="JdbcTemplate" visibility="private"/>
+        <Field name="SQL_INSERT_LOCATION" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_DELETE_LOCATION" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_EDIT_LOCATION" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_ALL_LOCATIONS" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_LOCATION" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_DELETE_LOCATION_SIGHTING" type="String" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setJdbcTemplate" returnType="void" visibility="public">
+          <Argument type="JdbcTemplate" name="jdbcTemplate"/>
+        </Method>
+        <Method name="addLoc" returnType="Location" visibility="public">
+          <Argument type="Location" name="loc"/>
+        </Method>
+        <Method name="deleteLoc" returnType="void" visibility="public">
+          <Argument type="int" name="locId"/>
+        </Method>
+        <Method name="editLoc" returnType="Location" visibility="public">
+          <Argument type="Location" name="loc"/>
+        </Method>
+        <Method name="getAllLoc" returnType="List&lt;Location&gt;" visibility="public"/>
+        <Method name="getLoc" returnType="Location" visibility="public">
+          <Argument type="int" name="locId"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LocationDaoStubImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="10.0" yPosition="255.0">
+      <Fields>
+        <Field name="l" type="Location" visibility="private"/>
+        <Field name="list" type="List&lt;Location&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="addLoc" returnType="Location" visibility="public">
+          <Argument type="Location" name="loc"/>
+        </Method>
+        <Method name="editLoc" returnType="Location" visibility="public">
+          <Argument type="Location" name="loc"/>
+        </Method>
+        <Method name="deleteLoc" returnType="void" visibility="public">
+          <Argument type="int" name="locId"/>
+        </Method>
+        <Method name="getAllLoc" returnType="List&lt;Location&gt;" visibility="public"/>
+        <Method name="getLoc" returnType="Location" visibility="public">
+          <Argument type="int" name="locId"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OrganizationDaoDbImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="1029.0" yPosition="41.0">
+      <Fields>
+        <Field name="jdbcTemplate" type="JdbcTemplate" visibility="private"/>
+        <Field name="SQL_INSERT_SUPERORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_DELETE_SUPERORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_EDIT_SUPERORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_ALL_FROM_SUPERORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_SUPERORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_INSERT_SUPERHUMAN_ORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_DELETE_SUPERHUMAN_ORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_SELECT_SUPERHUMAN_BY_ORG_ID" type="String" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setJdbcTemplate" returnType="void" visibility="public">
+          <Argument type="JdbcTemplate" name="jdbcTemplate"/>
+        </Method>
+        <Method name="addSuperOrg" returnType="Organization" visibility="public">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="deleteSuperOrg" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="editSuperOrg" returnType="Organization" visibility="public">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="getAllSuperOrgsAsList" returnType="List&lt;Organization&gt;" visibility="public"/>
+        <Method name="getSuperOrg" returnType="Organization" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="insertSuperOrg" returnType="void" visibility="private">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="findOrgsForSuperHuman" returnType="List&lt;SuperHuman&gt;" visibility="private">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="associateSuperHumanWithOrg" returnType="List&lt;Organization&gt;" visibility="private">
+          <Argument type="List&lt;Organization&gt;" name="orgList"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OrganizationDaoStubImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="688.0" yPosition="255.0">
+      <Fields>
+        <Field name="o" type="Organization" visibility="private"/>
+        <Field name="orgList" type="List&lt;Organization&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="addSuperOrg" returnType="Organization" visibility="public">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="deleteSuperOrg" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="editSuperOrg" returnType="Organization" visibility="public">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="getAllSuperOrgsAsList" returnType="List&lt;Organization&gt;" visibility="public"/>
+        <Method name="getSuperOrg" returnType="Organization" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PersistenceException" package="com.sg.superherosightings.dao" visibility="public" xPosition="1867.0" yPosition="490.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Throwable" name="cause"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="PictureDaoDbImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="1660.0" yPosition="699.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="PictureDaoFileImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="1568.0" yPosition="40.0">
+      <Fields>
+        <Field name="pictureMap" type="Map&lt;Integer, Picture&gt;" visibility="private"/>
+        <Field name="pictureCounter" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="addPicture" returnType="Picture" visibility="public">
+          <Argument type="Picture" name="picture"/>
+        </Method>
+        <Method name="deletePicture" returnType="void" visibility="public">
+          <Argument type="int" name="pictureId"/>
+        </Method>
+        <Method name="getPicture" returnType="Picture" visibility="public">
+          <Argument type="int" name="picId"/>
+        </Method>
+        <Method name="getAllPictures" returnType="List&lt;Picture&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PictureDaoStubImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="1900.0" yPosition="699.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="SightingDaoDbImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="1198.0" yPosition="619.0">
+      <Fields>
+        <Field name="jdbcTemplate" type="JdbcTemplate" visibility="private"/>
+        <Field name="SQL_INSERT_SIGHTING" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_DELETE_SIGHTING" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_EDIT_SIGHTING" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_ALL_SIGHTINGS" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_SIGHTING" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_SELECT_SUPERHUMAN_BY_SIGHTING_ID" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_SELECT_LOCATION_BY_SIGHTING_ID" type="String" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setJdbcTemplate" returnType="void" visibility="public">
+          <Argument type="JdbcTemplate" name="jdbcTemplate"/>
+        </Method>
+        <Method name="addSighting" returnType="Sighting" visibility="public">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+        <Method name="deleteSighting" returnType="void" visibility="public">
+          <Argument type="int" name="sightingId"/>
+        </Method>
+        <Method name="editSighting" returnType="Sighting" visibility="public">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+        <Method name="getAllSightings" returnType="List&lt;Sighting&gt;" visibility="public"/>
+        <Method name="getSighting" returnType="Sighting" visibility="public">
+          <Argument type="int" name="sightingId"/>
+        </Method>
+        <Method name="findSuperHumanForSighting" returnType="SuperHuman" visibility="private">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+        <Method name="findLocationForSighting" returnType="Location" visibility="private">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SightingDaoStubImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="886.0" yPosition="917.0">
+      <Fields>
+        <Field name="s" type="Sighting" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="addSighting" returnType="Sighting" visibility="public">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+        <Method name="deleteSighting" returnType="void" visibility="public">
+          <Argument type="int" name="sightingId"/>
+        </Method>
+        <Method name="editSighting" returnType="Sighting" visibility="public">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+        <Method name="getAllSightings" returnType="List&lt;Sighting&gt;" visibility="public"/>
+        <Method name="getSighting" returnType="Sighting" visibility="public">
+          <Argument type="int" name="sightingId"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SuperHeroAuditDaoImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="1886.0" yPosition="285.0">
+      <Fields>
+        <Field name="AUDIT_FILE" type="String" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="writeAuditEntry" returnType="void" visibility="public">
+          <Argument type="String" name="entry"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SuperHeroAuditDaoStubImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="1580.0" yPosition="485.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="writeAuditEntry" returnType="void" visibility="public">
+          <Argument type="String" name="entry"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SuperHumanDaoDbImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="443.0" yPosition="587.0">
+      <Fields>
+        <Field name="jdbcTemplate" type="JdbcTemplate" visibility="private"/>
+        <Field name="SQL_INSERT_SUPERHUMAN" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_DELETE_SUPERHUMAN" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_EDIT_SUPERHUMAN" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_ALL_FROM_SUPERHUMAN" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_GET_SUPERHUMAN" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_INSERT_SUPERHUMAN_ORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="SQL_DELETE_SUPERHUMAN_ORG" type="String" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setJdbcTemplate" returnType="void" visibility="public">
+          <Argument type="JdbcTemplate" name="jdbcTemplate"/>
+        </Method>
+        <Method name="addSuperHuman" returnType="SuperHuman" visibility="public">
+          <Argument type="SuperHuman" name="superHuman"/>
+        </Method>
+        <Method name="deleteSuperHuman" returnType="void" visibility="public">
+          <Argument type="int" name="superId"/>
+        </Method>
+        <Method name="editSuperHuman" returnType="SuperHuman" visibility="public">
+          <Argument type="SuperHuman" name="superHuman"/>
+        </Method>
+        <Method name="getAllSuperHumanAsList" returnType="List&lt;SuperHuman&gt;" visibility="public"/>
+        <Method name="getSuperHuman" returnType="SuperHuman" visibility="public">
+          <Argument type="int" name="superId"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SuperHumanDaoStubImpl" package="com.sg.superherosightings.dao" visibility="public" xPosition="20.0" yPosition="771.0">
+      <Fields>
+        <Field name="s" type="SuperHuman" visibility="private"/>
+        <Field name="list" type="List&lt;SuperHuman&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="addSuperHuman" returnType="SuperHuman" visibility="public">
+          <Argument type="SuperHuman" name="superHuman"/>
+        </Method>
+        <Method name="editSuperHuman" returnType="SuperHuman" visibility="public">
+          <Argument type="SuperHuman" name="superHuman"/>
+        </Method>
+        <Method name="deleteSuperHuman" returnType="void" visibility="public">
+          <Argument type="int" name="superId"/>
+        </Method>
+        <Method name="getAllSuperHumanAsList" returnType="List&lt;SuperHuman&gt;" visibility="public"/>
+        <Method name="getSuperHuman" returnType="SuperHuman" visibility="public">
+          <Argument type="int" name="superId"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="LocationDao" package="com.sg.superherosightings.dao" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Methods>
+        <Method name="addLoc" returnType="Location" visibility="package">
+          <Argument type="Location" name="loc"/>
+        </Method>
+        <Method name="deleteLoc" returnType="void" visibility="package">
+          <Argument type="int" name="locId"/>
+        </Method>
+        <Method name="editLoc" returnType="Location" visibility="package">
+          <Argument type="Location" name="loc"/>
+        </Method>
+        <Method name="getAllLoc" returnType="List&lt;Location&gt;" visibility="package"/>
+        <Method name="getLoc" returnType="Location" visibility="package">
+          <Argument type="int" name="locId"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="OrganizationDao" package="com.sg.superherosightings.dao" visibility="public" xPosition="688.0" yPosition="31.0">
+      <Methods>
+        <Method name="addSuperOrg" returnType="Organization" visibility="package">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="deleteSuperOrg" returnType="void" visibility="package">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="editSuperOrg" returnType="Organization" visibility="package">
+          <Argument type="Organization" name="org"/>
+        </Method>
+        <Method name="getAllSuperOrgsAsList" returnType="List&lt;Organization&gt;" visibility="package"/>
+        <Method name="getSuperOrg" returnType="Organization" visibility="package">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="PictureDao" package="com.sg.superherosightings.dao" visibility="public" xPosition="1900.0" yPosition="50.0">
+      <Methods>
+        <Method name="addPicture" returnType="Picture" visibility="package">
+          <Argument type="Picture" name="picture"/>
+        </Method>
+        <Method name="deletePicture" returnType="void" visibility="package">
+          <Argument type="int" name="picId"/>
+        </Method>
+        <Method name="getPicture" returnType="Picture" visibility="package">
+          <Argument type="int" name="picId"/>
+        </Method>
+        <Method name="getAllPictures" returnType="List&lt;Picture&gt;" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="SightingDao" package="com.sg.superherosightings.dao" visibility="public" xPosition="886.0" yPosition="615.0">
+      <Methods>
+        <Method name="addSighting" returnType="Sighting" visibility="package">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+        <Method name="deleteSighting" returnType="void" visibility="package">
+          <Argument type="int" name="sightingId"/>
+        </Method>
+        <Method name="editSighting" returnType="Sighting" visibility="package">
+          <Argument type="Sighting" name="sighting"/>
+        </Method>
+        <Method name="getAllSightings" returnType="List&lt;Sighting&gt;" visibility="package"/>
+        <Method name="getSighting" returnType="Sighting" visibility="package">
+          <Argument type="int" name="sightingId"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="SuperHeroAuditDao" package="com.sg.superherosightings.dao" visibility="public" xPosition="1580.0" yPosition="285.0">
+      <Methods>
+        <Method name="writeAuditEntry" returnType="void" visibility="public">
+          <Argument type="String" name="entry"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="SuperHumanDao" package="com.sg.superherosightings.dao" visibility="public" xPosition="30.0" yPosition="541.0">
+      <Methods>
+        <Method name="addSuperHuman" returnType="SuperHuman" visibility="package">
+          <Argument type="SuperHuman" name="superHuman"/>
+        </Method>
+        <Method name="deleteSuperHuman" returnType="void" visibility="package">
+          <Argument type="int" name="superId"/>
+        </Method>
+        <Method name="editSuperHuman" returnType="SuperHuman" visibility="package">
+          <Argument type="SuperHuman" name="superHuman"/>
+        </Method>
+        <Method name="getAllSuperHumanAsList" returnType="List&lt;SuperHuman&gt;" visibility="package"/>
+        <Method name="getSuperHuman" returnType="SuperHuman" visibility="package">
+          <Argument type="int" name="superId"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.OrganizationDaoStubImpl" target="com.sg.superherosightings.dao.OrganizationDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.SuperHeroAuditDaoStubImpl" target="com.sg.superherosightings.dao.SuperHeroAuditDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.SuperHumanDaoStubImpl" target="com.sg.superherosightings.dao.SuperHumanDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.SuperHumanDaoDbImpl" target="com.sg.superherosightings.dao.SuperHumanDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.LocationDaoStubImpl" target="com.sg.superherosightings.dao.LocationDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.SuperHeroAuditDaoImpl" target="com.sg.superherosightings.dao.SuperHeroAuditDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.PictureDaoFileImpl" target="com.sg.superherosightings.dao.PictureDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.OrganizationDaoDbImpl" target="com.sg.superherosightings.dao.OrganizationDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.LocationDaoDbImpl" target="com.sg.superherosightings.dao.LocationDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.SightingDaoStubImpl" target="com.sg.superherosightings.dao.SightingDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sg.superherosightings.dao.SightingDaoDbImpl" target="com.sg.superherosightings.dao.SightingDao"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

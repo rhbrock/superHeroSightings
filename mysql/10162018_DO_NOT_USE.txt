@@ -1,0 +1,125 @@
+drop database if exists superhero;
+
+create database superhero;
+
+use superhero;
+
+create table if not exists `herovillain` (
+  `heroVillainId` int NOT NULL AUTO_INCREMENT,
+  `type` enum ("hero", "villain") NOT NULL,
+  PRIMARY KEY (`heroVillainId`),
+  index type (type)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+insert into herovillain (type) values ('hero'), ('villain');
+
+create table if not exists zipcity(
+ zip int not null,
+ #lat DECIMAL(10, 8) not null, 
+ #lon DECIMAL(11, 8) not null,
+ city varChar(30) not null,
+ stateId varChar(5) not null,
+ #stateName varChar(30) not null,
+ primary key (zip)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into zipcity (zip, city, stateId) values ("10012", "New York", "NY"), ("11211", "Brooklyn", "NY"), ("30303", "Atlanta", "GA"), ("10560", "North Salem", "NY");
+
+
+create table if not exists superhuman (
+	superId int not null auto_increment,
+    superHumanName varChar(50) not null,
+    superHumanDesc text,
+    heroVillainId int(11) not null,
+    superHumanImgLink varChar(200),
+    superHumanImg longblob,
+    primary key (superId),
+	foreign key (heroVillainId) references herovillain (heroVillainId)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+insert into superhuman (superHumanName, superHumanDesc, heroVillainId, superHumanImgLink) values
+("Aquaman", "Breaths under water", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\aquaman.png"),
+("Batman", "Strength and unique weaponry", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\batman.png"),
+("Beast", "Intelligence", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\beast.jpg"),
+("Cyclops", "Shoots lasers from eyes", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\cyclops.jpg"),
+("Flash", "Speed", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\her\flash.png"),
+("Gambit", "Manipulates kinetic energy", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\gambit.png"),
+("Storm", "Weather control", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\storm.png"),
+("Superman", "Flight", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\superman.png"),
+("Wolverine", "Steel claws", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\wolverine.jpg"),
+("Wonder Women", "Possesses Lasso of Truth", 1, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\hero\wonderwomen.jpg"),
+("Blob", "Strength", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\blob.png"),
+("Joker", "Lethal chemical engineer", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\joker.jpg"),
+("Lex Luthor", "Intelligence", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\lexLuthor.png"),
+("Magneto", "Power of magnetism", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\magneto.png"),
+("Mystique", "Shapeshifter", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\mystique.png"),
+("Poison Ivy", "Mind control", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\poisonIvy.png"),
+("Pyro", "Controls fire", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\pyro.png"),
+("Queen Bee", "Bee like characteristics", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\queenBee.jpg"),
+("Scarecrow", "Toxins that exploit fear", 2, "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\super\villain\scarecrow.jpg");
+
+
+create table if not exists superorg(
+	orgId int not null auto_increment,
+    orgName varChar(50) not null,
+    orgDesc text,
+    orgStreetAddress varChar(100),
+    zip int,
+    orgEmail varChar(50),
+    orgPhone varChar(20),
+    orgImgLink varChar(200),
+    orgImg longblob,
+    primary key (orgId),
+    foreign key (zip) references zipcity (zip)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+insert into superorg (orgName, orgDesc, orgStreetAddress, zip, orgEmail, orgPhone, orgImgLink) values
+("Brother Hood of Mutants", "Defeat the x-men", "524 Broadway", 10012, "bhm@bhm.com", "111-111-1111", "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\org\brotherhoodOfMutants.jpg"), 
+("Injustice Gang", "Seeks power via power-sealing devices", "178 Broadway", 11211, "injgang@injgang.com", "222-222-2222", "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\org\injusticeGang.jpg"),
+("Justice League", "Protect planet Earth", "152 Luckie St NW", 30303, "justiceleague@justiceleague.com", "333-333-3333", "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\org\justiceLeague.png"),
+("X-Men", "Fight for peace and equality", "1407 Graymalkin Lane", 10560, "xmen@xmen.com", "444-444-4444", "C:\Users\Roger\tsg_gitRepo\roger-brock-individual-work\SuperHeroSightings\photos\org\xmen.jpg");
+
+create table if not exists superhumanorgbridge(
+	superId int not null,
+    orgId int not null
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE superhumanorgbridge ADD CONSTRAINT fk_superhumanorgbridge_super FOREIGN KEY (superId) REFERENCES superhuman(superId) ON DELETE NO ACTION;
+ALTER TABLE superhumanorgbridge ADD CONSTRAINT fk_superhumanorgbridge_org FOREIGN KEY (orgId) REFERENCES superorg(orgId) ON DELETE NO ACTION;
+
+insert into superhumanorgbridge (superId, orgId) values
+(1, 3), (2, 3), (3, 4), (4, 4), (5, 3), (6, 4), (7, 4), (8, 3), (9, 4), (10, 3), (11, 1), (12, 2), (13, 2), (14, 1), (15, 1), (16, 2), (17, 1), (18, 2), (19, 2);
+
+create table if not exists sightinglocations (
+	locId int not null auto_increment,
+    locName varChar(50) not null,
+    locDesc text,
+    locStreetAddress varChar(100),
+    zip int,
+	#lat DECIMAL(10, 8) not null, 
+	#lon DECIMAL(11, 8) not null,
+    lat double not null, 
+	lon double not null,
+    primary key (locId),
+	foreign key (zip) references zipcity (zip)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+create table if not exists sightingphoto(
+	photoId int not null auto_increment,
+    photoCaption varChar(50),
+    imgPath varChar(100) not null,
+    userPhoto longblob,
+    primary key (photoId)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+create table if not exists supersightingsbridge(
+	superId int not null,
+    locId int not null,
+    recordedDateTime DateTime not null,
+    photoId int not null,
+	primary key (superId),
+	foreign key (photoId) references sightingphoto (photoId)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+ALTER TABLE supersightingsbridge ADD CONSTRAINT fk_supersightingsbridge_super FOREIGN KEY (superId) REFERENCES superhuman(superId) ON DELETE NO ACTION;
+ALTER TABLE supersightingsbridge ADD CONSTRAINT fk_supersightingsbridge_loc FOREIGN KEY (locId) REFERENCES sightinglocations(locId) ON DELETE NO ACTION;
